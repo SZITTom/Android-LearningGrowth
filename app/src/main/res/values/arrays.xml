@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="main_tab_bottom">
+        <item>安卓版本</item>
+        <item>封装控件</item>
+        <item>常用功能</item>
+        <item>框架运用</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="page_color">#E7ECF1</color>
+    <!-- tab_bottom-->
+    <color name="tab_bottom_bg">#FFFFFF</color>
+    <color name="tab_bottom_check">#000000</color>
+</resources>

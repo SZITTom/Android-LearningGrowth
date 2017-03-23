@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yun.android_learninggrowth.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true" />
+
+
+    <com.yun.library.tablayout.CommonTabLayout
+        android:id="@+id/main_tab_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tab_bottom_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/content"
+        tl:tl_divider_color="@android:color/transparent"
+        tl:tl_iconMargin="5dp"
+        tl:tl_indicator_color="@android:color/transparent"
+        tl:tl_textSelectColor="@android:color/black"
+        tl:tl_textUnselectColor="@android:color/darker_gray"
+        tl:tl_textsize="13sp"
+        tl:tl_underline_color="@android:color/transparent" />
+
+</RelativeLayout>

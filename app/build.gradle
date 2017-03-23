@@ -1,0 +1,145 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.yun.android_learninggrowth"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField("boolean", "AUTO_UPDATES", "true")//开启自动更新功能
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "default_channel"]
+
+        //ndk {
+        //选择要添加的对应cpu类型的.so库。
+        //abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
+        // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        //}
+//        manifestPlaceholders = [
+//                JPUSH_PKGNAME: applicationId,
+//                JPUSH_APPKEY : "46551503f1df64500ed8cc34", //JPush上注册的包名对应的appkey.
+//                JPUSH_CHANNEL: "b6388d48c9f179cc9ecb9def", //暂时填写默认值即可.
+//        ]
+
+        // Enabling multidex support. dex突破65535限制
+        multiDexEnabled true
+    }
+//    signingConfigs {
+//        THconfig {
+//            keyAlias 'TianHang'
+//            keyPassword "tianhang"
+//            storeFile file('tianhang.keystore')
+//            storePassword "tianhang"
+//        }
+//    }
+
+
+    buildTypes {
+        debug {
+            //显示Log
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.THconfig
+        }
+
+        release {
+            //不显示Log
+            buildConfigField("boolean", "LOG_DEBUG", "false")
+            //混淆开关
+            minifyEnabled true
+            //ziPalign优化
+            zipAlignEnabled true
+            //移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.THconfig
+        }
+    }
+    lintOptions {
+        //禁用Lint报错 （第三方库报错）
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    //多渠道打包，配置
+    productFlavors {
+        huawei {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        qq {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        jifeng {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "jifeng"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        wandoujia {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+        _360cn {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "_360cn"]
+//            buildConfigField("boolean", "AUTO_UPDATES", "false")//不开启自动更新功能
+        }
+    }
+    //打包后文件名设置
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile project(':library')
+
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:support-vector-drawable:25.3.0'
+    //65536限制
+    compile 'com.android.support:multidex:1.0.1'
+    /** 引入butterknife*/
+    compile'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

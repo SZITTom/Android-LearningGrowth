@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android-LearningGrowth</string>
+    <string name="title_home">安卓版本</string>
+    <string name="title_dashboard">封装控件</string>
+    <string name="common_functions">常用功能</string>
+    <string name="frame_use">框架运用</string>
+
+</resources>
