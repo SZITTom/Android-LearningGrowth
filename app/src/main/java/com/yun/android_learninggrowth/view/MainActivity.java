@@ -44,6 +44,8 @@ public class MainActivity extends BaseAppCompatActivity {
     protected int getContentViewId() {
         return R.layout.activity_main;
     }
+
+
     /**
      * 防止fragment重叠
      */
@@ -55,9 +57,13 @@ public class MainActivity extends BaseAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initTabData();
+
     }
 
+    @Override
+    protected void initData() {
+        initTabData();
+    }
     /**
      * 设置底部Tab
      */
@@ -80,9 +86,9 @@ public class MainActivity extends BaseAppCompatActivity {
 
             }
         });
-
         setTabData(mCurrentTab);
     }
+
     private void initFragments() {
         mFragments = new ArrayList<>();
         HomeFragment mHomeFragment = HomeFragment.newInstance(mTabEntities.get(0).getTabTitle());

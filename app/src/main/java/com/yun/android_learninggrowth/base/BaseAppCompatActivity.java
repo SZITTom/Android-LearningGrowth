@@ -25,6 +25,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     @LayoutRes
     protected abstract int getContentViewId();
 
+    protected abstract void initData();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_ACTION_MODE_OVERLAY);//长按出现复制粘贴栏在顶部占位
@@ -32,6 +34,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
         ButterKnife.bind(this);
+        initData();
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.yun.android_learninggrowth.R;
 import com.yun.android_learninggrowth.adapter.TextAdapter;
 import com.yun.android_learninggrowth.base.BaseFragment;
 import com.yun.android_learninggrowth.utils.JumpActivityHelper;
+import com.yun.android_learninggrowth.view.activity.DebounceClickActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,6 @@ public class CommonFunFragment extends BaseFragment {
     private static final String ARG_PARAM1 = "param1";
 
     private String mParam1;
-
 
     @BindView(R.id.fun_listview)
     ListView mListView;
@@ -74,7 +74,7 @@ public class CommonFunFragment extends BaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0://手机验证码
-//                        JumpActivityHelper.jumpActivity(getActivity(), DebounceClickActivity.class);
+                        JumpActivityHelper.jumpActivity(getActivity(), DebounceClickActivity.class);
                         break;
                 }
             }
