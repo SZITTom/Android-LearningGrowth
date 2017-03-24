@@ -43,7 +43,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="20dp"
-        android:text="自定义CountDownTimer"
+        android:text="自定义AdvancedCountdownTimer\n页面过度呼出再进入后定时器重复现象"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_regiter_get_code" />
