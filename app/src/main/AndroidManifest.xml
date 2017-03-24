@@ -56,12 +56,13 @@
             android:name=".view.activity.MessageActivity"
             android:screenOrientation="portrait" />
 
-        <service
-            android:name=".service.PollingService">
+        <service android:name=".service.PollingService">
             <intent-filter android:priority="1000">
                 <action android:name="com.yun.android_learninggrowth.service.PollingService" />
             </intent-filter>
         </service>
+
+        <activity android:name=".view.activity.frame.FileDownLoaderActivity"></activity>
     </application>
 
 </manifest>
