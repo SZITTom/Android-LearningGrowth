@@ -10,6 +10,7 @@
         android:id="@+id/fun_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/page_color"
         android:cacheColorHint="#00000000"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="2dp"

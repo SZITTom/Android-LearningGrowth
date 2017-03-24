@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment;
 
 import com.yun.android_learninggrowth.R;
 import com.yun.android_learninggrowth.base.BaseAppCompatActivity;
+import com.yun.android_learninggrowth.utils.TUtils;
 import com.yun.android_learninggrowth.view.fragment.CommonFunFragment;
 import com.yun.android_learninggrowth.view.fragment.ControlsFragment;
 import com.yun.android_learninggrowth.view.fragment.FrameUseFragment;
 import com.yun.android_learninggrowth.view.fragment.HomeFragment;
+import com.yun.library.manager.ActivityManager;
 import com.yun.library.tablayout.CommonTabLayout;
 import com.yun.library.tablayout.TabEntity;
 import com.yun.library.tablayout.listener.CustomTabEntity;
@@ -110,5 +112,29 @@ public class MainActivity extends BaseAppCompatActivity {
             mCommonTabLayout.getContentView(i).setBackgroundResource(R.color.tab_bottom_bg);
         }
         mCommonTabLayout.getContentView(position).setBackgroundResource(R.color.tab_bottom_bg);
+    }
+
+    /**
+     * 记录两次退出时间间隔
+     */
+    private long mExitTime;
+
+    public boolean AppExit() {
+        long currentTime = System.currentTimeMillis();
+        if ((currentTime - mExitTime) > 2000) {
+            TUtils.showToast("再按一次退出应用");
+            mExitTime = currentTime;
+        } else {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (AppExit()){
+            ActivityManager.getInstance().AppExit();
+            super.onBackPressed();
+        }
     }
 }

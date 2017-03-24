@@ -12,12 +12,16 @@ import com.yun.android_learninggrowth.adapter.TextAdapter;
 import com.yun.android_learninggrowth.base.BaseFragment;
 import com.yun.android_learninggrowth.utils.JumpActivityHelper;
 import com.yun.android_learninggrowth.view.activity.DebounceClickActivity;
+import com.yun.android_learninggrowth.view.activity.WakeUpActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 常用的功能
+ */
 public class CommonFunFragment extends BaseFragment {
 
 
@@ -56,7 +60,7 @@ public class CommonFunFragment extends BaseFragment {
     protected void initView() {
         List<String> datas = new ArrayList<>();
         datas.add("手机验证码，延时60秒实现");
-        datas.add("2");
+        datas.add("Android保持屏幕常亮唤醒状态");
         datas.add("3");
         datas.add("4");
         TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
@@ -71,6 +75,9 @@ public class CommonFunFragment extends BaseFragment {
                 switch (position){
                     case 0://手机验证码
                         JumpActivityHelper.jumpActivity(getActivity(), DebounceClickActivity.class);
+                        break;
+                    case 1://Android保持屏幕常亮唤醒状态
+                        JumpActivityHelper.jumpActivity(getActivity(), WakeUpActivity.class);
                         break;
                 }
             }

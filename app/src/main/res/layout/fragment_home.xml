@@ -4,9 +4,18 @@
     android:layout_height="match_parent"
     tools:context="com.yun.android_learninggrowth.view.fragment.HomeFragment">
 
-    <TextView
+    <ListView
+        android:id="@+id/home_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HomeFragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/page_color"
+        android:cacheColorHint="#00000000"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="2dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:listSelector="#00000000" />
 
 </FrameLayout>

@@ -1,19 +1,26 @@
 package com.yun.android_learninggrowth.view.fragment;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
+import com.yun.android_learninggrowth.adapter.TextAdapter;
+import com.yun.android_learninggrowth.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 框架的运用.
  */
-public class FrameUseFragment extends Fragment {
+public class FrameUseFragment extends BaseFragment {
 
+    @BindView(R.id.fra_listview)
+    ListView mListView;
 
     public FrameUseFragment() {
     }
@@ -24,11 +31,42 @@ public class FrameUseFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frame_use, container, false);
+    protected int getContentViewId() {
+        return R.layout.fragment_frame_use;
     }
+
+    @Override
+    protected void initView() {
+        List<String> datas = new ArrayList<>();
+        datas.add("1");
+        datas.add("2");
+        datas.add("3");
+        datas.add("4");
+        datas.add("5");
+        TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
+        mListView.setAdapter(textAdapter);
+    }
+
+    @Override
+    protected void initListeren() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
 
 
 }

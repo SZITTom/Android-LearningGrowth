@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许应用写入外部存储 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 允许应用读取外部存储 -->
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 屏幕唤醒权限 -->
+
+
     <!-- 允许程序访问联系人通讯录信息 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
@@ -32,16 +35,33 @@
         <activity
             android:name=".view.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.DebounceClickActivity"
-            android:screenOrientation="portrait"/>
+
+        <!-- 手机验证码功能 -->
+        <activity
+            android:name=".view.activity.DebounceClickActivity"
+            android:screenOrientation="portrait" />
+        <!-- Android保持屏幕常亮唤醒状态 -->
+        <activity
+            android:name=".view.activity.WakeUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MessageActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".service.PollingService">
+            <intent-filter android:priority="1000">
+                <action android:name="com.yun.android_learninggrowth.service.PollingService" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

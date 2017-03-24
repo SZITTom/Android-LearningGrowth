@@ -7,23 +7,69 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
+import com.yun.android_learninggrowth.adapter.TextAdapter;
+import com.yun.android_learninggrowth.base.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 安卓版本新功能
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
+    @BindView(R.id.home_listview)
+    ListView mListView;
 
     public HomeFragment() {
     }
 
+    public static HomeFragment newInstance(String tabTitle) {
+        HomeFragment fragment = new HomeFragment();
+        return fragment;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    protected int getContentViewId() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    protected void initView() {
+        List<String> datas = new ArrayList<>();
+        datas.add("1");
+        datas.add("2");
+        datas.add("3");
+        datas.add("4");
+        datas.add("5");
+        TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
+        mListView.setAdapter(textAdapter);
+    }
+
+    @Override
+    protected void initListeren() {
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
@@ -32,8 +78,5 @@ public class HomeFragment extends Fragment {
 
     }
 
-    public static HomeFragment newInstance(String tabTitle) {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
-    }
+
 }
