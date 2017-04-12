@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
-import com.yun.android_learninggrowth.adapter.TextAdapter;
+import com.yun.android_learninggrowth.view.adapter.TextAdapter;
 import com.yun.android_learninggrowth.base.BaseFragment;
 
 import java.util.ArrayList;

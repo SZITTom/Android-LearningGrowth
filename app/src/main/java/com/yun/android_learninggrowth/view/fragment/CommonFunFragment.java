@@ -8,7 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
-import com.yun.android_learninggrowth.adapter.TextAdapter;
+import com.yun.android_learninggrowth.view.activity.file.FilePickActivity;
+import com.yun.android_learninggrowth.view.adapter.TextAdapter;
 import com.yun.android_learninggrowth.base.BaseFragment;
 import com.yun.android_learninggrowth.utils.JumpActivityHelper;
 import com.yun.android_learninggrowth.view.activity.DebounceClickActivity;
@@ -61,7 +62,7 @@ public class CommonFunFragment extends BaseFragment {
         List<String> datas = new ArrayList<>();
         datas.add("手机验证码，延时60秒实现");
         datas.add("Android保持屏幕常亮唤醒状态");
-        datas.add("3");
+        datas.add("轻量级的文件选择器，可以检索手机目录选择文件");
         datas.add("4");
         TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
         mListView.setAdapter(textAdapter);
@@ -78,6 +79,10 @@ public class CommonFunFragment extends BaseFragment {
                         break;
                     case 1://Android保持屏幕常亮唤醒状态
                         JumpActivityHelper.jumpActivity(getActivity(), WakeUpActivity.class);
+                        break;
+                    case 2://轻量级的文件选择器，可以检索手机目录选择文件
+                        JumpActivityHelper.jumpActivity(getActivity(), FilePickActivity.class);
+
                         break;
                 }
             }

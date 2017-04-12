@@ -128,23 +128,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile project(':library')
-
-    //65536限制
-    //引入butterknife
-
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:design:25.3.0'
-    compile 'com.android.support:support-vector-drawable:25.3.0'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-vector-drawable:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.jakewharton:butterknife:8.5.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    //Android 文件下载引擎
     compile 'com.liulishuo.filedownloader:library:1.4.2'
-    //线程池监控工具
     debugCompile 'cn.dreamtobe.threaddebugger:threaddebugger:1.3.3'
     releaseCompile 'cn.dreamtobe.threaddebugger:threaddebugger-no-op:1.3.3'
+    compile project(':lfilepickerlibrary')
 }

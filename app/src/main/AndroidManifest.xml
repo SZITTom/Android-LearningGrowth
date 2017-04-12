@@ -62,7 +62,11 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".view.activity.frame.FileDownLoaderActivity"></activity>
+        <!--多任务、断点继续高并发性,使用简单,单/ NotSingle-process-->
+        <activity android:name=".view.activity.frame.FileDownLoaderActivity" />
+        <!--轻量级的文件选择器，可以检索手机目录选择文件-->
+        <activity android:name=".view.activity.file.FilePickActivity" />
+        <activity android:name=".view.activity.file.FragmentActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.yun.android_learninggrowth.adapter;
+package com.yun.android_learninggrowth.view.adapter;
 
 import android.content.Context;
 import android.widget.TextView;
