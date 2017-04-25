@@ -1,4 +1,4 @@
-﻿package com.leon.lfilepickerlibrary;
+package com.leon.lfilepickerlibrary;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -14,6 +14,7 @@ import com.leon.lfilepickerlibrary.ui.LFilePickerActivity;
  * 时间：2017/3/20 16:57
  * https://github.com/leonHua/LFilePicker
  */
+
 public class LFilePicker {
     private Activity mActivity;
     private Fragment mFragment;

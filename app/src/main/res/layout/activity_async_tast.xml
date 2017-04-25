@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yun.android_learninggrowth.view.activity.asynctast.AsyncTastActivity">
+
+    <TextView
+        android:id="@+id/tv_thread_pool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="THREAD_POOL_EXECUTOR, 异步线程池"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/tv_thread_pool"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_thread_pool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStartAsyncTast"
+        android:layout_marginTop="20dp"
+        android:text="start异步线程池"
+        android:layout_below="@+id/progressBar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_serial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SERIAL_EXECUTOR，同步线程池"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/iv_thread_pool"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_serial"
+        android:layout_toLeftOf="@+id/iv_serial"
+        android:layout_toStartOf="@+id/iv_serial"
+        android:layout_marginTop="17dp" />
+
+    <Button
+        android:id="@+id/btn_serial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStartSerial"
+        android:text="start同步线程"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btn_thread_pool"
+        android:layout_alignStart="@+id/btn_thread_pool"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/iv_thread_pool"
+        android:layout_width="146dp"
+        android:layout_height="172dp"
+        app:srcCompat="@drawable/btn_bg"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/iv_serial"
+        android:layout_width="146dp"
+        android:layout_height="172dp"
+        app:srcCompat="@drawable/btn_bg"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_alignTop="@+id/iv_thread_pool"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

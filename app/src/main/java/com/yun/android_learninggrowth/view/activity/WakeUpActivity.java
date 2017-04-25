@@ -11,6 +11,7 @@ import com.yun.android_learninggrowth.utils.PollingUtils;
 
 /**
  * Android保持屏幕常亮唤醒状态
+ * http://blog.csdn.net/ryantang03/article/details/8628753
  * 需要开通权限<uses-permission android:name="android.permission.WAKE_LOCK" />
  */
 public class WakeUpActivity extends BaseAppCompatActivity {
@@ -24,7 +25,7 @@ public class WakeUpActivity extends BaseAppCompatActivity {
 
     @Override
     protected void initData() {
-        //acquireWakeLock();
+        acquireWakeLock();
         //Start polling service
         System.out.println("Start polling service...");
         PollingUtils.startPollingService(this, 5, PollingService.class, PollingService.ACTION);
@@ -39,13 +40,12 @@ public class WakeUpActivity extends BaseAppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //wakeLock.acquire();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //wakeLock.release();
+        releaseWakeLock();//?????
     }
 
     @Override

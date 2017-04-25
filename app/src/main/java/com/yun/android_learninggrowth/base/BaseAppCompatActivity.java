@@ -18,14 +18,14 @@ import butterknife.ButterKnife;
 
 /**
  * Created by SZITTom on 2017/3/23.
+ * activity基础类
  */
 
-public abstract class BaseAppCompatActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
+public abstract class BaseAppCompatActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
     @LayoutRes
     protected abstract int getContentViewId();
 
-    protected abstract void initData();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
         ButterKnife.bind(this);
         initData();
     }
+
+    protected abstract void initData();
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {

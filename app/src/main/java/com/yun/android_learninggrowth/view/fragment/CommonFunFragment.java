@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
+import com.yun.android_learninggrowth.view.activity.asynctast.AsyncTastActivity;
 import com.yun.android_learninggrowth.view.activity.file.FilePickActivity;
 import com.yun.android_learninggrowth.view.adapter.TextAdapter;
 import com.yun.android_learninggrowth.base.BaseFragment;
@@ -63,7 +64,7 @@ public class CommonFunFragment extends BaseFragment {
         datas.add("手机验证码，延时60秒实现");
         datas.add("Android保持屏幕常亮唤醒状态");
         datas.add("轻量级的文件选择器，可以检索手机目录选择文件");
-        datas.add("4");
+        datas.add("AsyncTast使用");
         TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
         mListView.setAdapter(textAdapter);
     }
@@ -82,7 +83,9 @@ public class CommonFunFragment extends BaseFragment {
                         break;
                     case 2://轻量级的文件选择器，可以检索手机目录选择文件
                         JumpActivityHelper.jumpActivity(getActivity(), FilePickActivity.class);
-
+                        break;
+                    case 3://AsyncTast使用
+                        JumpActivityHelper.jumpActivity(getActivity(), AsyncTastActivity.class);
                         break;
                 }
             }

@@ -83,7 +83,9 @@ public class DebounceClickActivity extends BaseAppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        countTimers.cancel();
+        if (countTimers != null) {
+            countTimers.cancel();
+        }
         super.onDestroy();
     }
 
