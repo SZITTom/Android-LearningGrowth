@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.yun.android_learninggrowth.R;
+import com.yun.android_learninggrowth.view.activity.ExpandableTextActivity;
 import com.yun.android_learninggrowth.view.activity.asynctast.AsyncTastActivity;
 import com.yun.android_learninggrowth.view.activity.file.FilePickActivity;
 import com.yun.android_learninggrowth.view.adapter.TextAdapter;
@@ -65,6 +66,7 @@ public class CommonFunFragment extends BaseFragment {
         datas.add("Android保持屏幕常亮唤醒状态");
         datas.add("轻量级的文件选择器，可以检索手机目录选择文件");
         datas.add("AsyncTast使用");
+        datas.add("展开折叠功能的TextView");
         TextAdapter textAdapter = new TextAdapter(getActivity(), datas);
         mListView.setAdapter(textAdapter);
     }
@@ -86,6 +88,9 @@ public class CommonFunFragment extends BaseFragment {
                         break;
                     case 3://AsyncTast使用
                         JumpActivityHelper.jumpActivity(getActivity(), AsyncTastActivity.class);
+                        break;
+                    case 4:
+                        JumpActivityHelper.jumpActivity(getActivity(), ExpandableTextActivity.class);
                         break;
                 }
             }

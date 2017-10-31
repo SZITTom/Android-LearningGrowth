@@ -251,4 +251,12 @@
     <!-- 是否有Ripple效果,api21+有效-->
     <attr name="rv_isRippleEnable" format="boolean" />
     <!-- tablayout end-->
+
+    <declare-styleable name="ExpandableTextViewAttr">
+        <!-- 允许显示最大行数 -->
+        <attr name="maxExpandLines" format="integer"/>
+        <!-- 动画执行时间 -->
+        <attr name="duration" format="integer"/>
+    </declare-styleable>
+
 </resources>
